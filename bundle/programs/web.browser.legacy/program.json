@@ -1,0 +1,282 @@
+{
+  "format": "web-program-pre1",
+  "manifest": [
+    {
+      "path": "9a698203ee4c05b88b900fc0140632cf94899a07.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/9a698203ee4c05b88b900fc0140632cf94899a07.js?meteor_js_resource=true",
+      "replaceable": false,
+      "size": 2826437,
+      "hash": "9a698203ee4c05b88b900fc0140632cf94899a07",
+      "sri": "CB2NTIAgRsoybboj+LpbGfcoJcMSfnLbANaGcyh1sJtVmIlddApCQh+bfKfRe5FU6EzCPKyc7tNf+RTBF94IMQ=="
+    },
+    {
+      "path": "9a698203ee4c05b88b900fc0140632cf94899a07.stats.json",
+      "where": "client",
+      "type": "json",
+      "cacheable": true,
+      "url": "/9a698203ee4c05b88b900fc0140632cf94899a07.stats.json?meteor_js_resource=true",
+      "size": 33120,
+      "hash": "d07e106ea090163097dcf4c4dfa25223693d7fd0",
+      "sri": "ifxkwhtwythshu7HCbMyt6MrM2xC+d6ovJ/J0Dll68wu1YxgKxwf6oB+3g17i3e61QVuviQOUKmEWW+DJVLt9Q=="
+    },
+    {
+      "path": "151908865ea0ebbc5fc1cd8d2e0682375fc8cce8.css",
+      "where": "client",
+      "type": "css",
+      "cacheable": true,
+      "url": "/151908865ea0ebbc5fc1cd8d2e0682375fc8cce8.css?meteor_css_resource=true",
+      "size": 4389,
+      "hash": "151908865ea0ebbc5fc1cd8d2e0682375fc8cce8",
+      "sri": "ADt3a9jT3DqUMos70TyPtJfazoyQ5MY2DHWKReAseZD1hHB/vpga6jB+FvOd0UeBeNzj+YbVQsMEFgw15xF4aw=="
+    },
+    {
+      "path": "app/farm.jpg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/farm.jpg",
+      "size": 143789,
+      "hash": "63dad8faf1d3e0d23890e6fd46c636a0df8de59c",
+      "sri": null
+    },
+    {
+      "path": "app/location.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/location.png",
+      "size": 43659,
+      "hash": "bcd0acb5446c9944d4996681cca6533ebed8c75a",
+      "sri": null
+    },
+    {
+      "path": "app/photo.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/photo.png",
+      "size": 19334,
+      "hash": "6347ea6a4f749e8b09200a4dab52ebf7f5d54907",
+      "sri": null
+    },
+    {
+      "path": "app/question.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/question.png",
+      "size": 32232,
+      "hash": "a84402ea220472b7beb81dc8bda99dfd971b3e99",
+      "sri": null
+    },
+    {
+      "path": "app/font/SukhumvitSet-Bold.ttf",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/font/SukhumvitSet-Bold.ttf",
+      "size": 85576,
+      "hash": "afd050dc3ea42fe1c4763acaf95e3deaac3dc799",
+      "sri": null
+    },
+    {
+      "path": "app/font/SukhumvitSet-Light.ttf",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/font/SukhumvitSet-Light.ttf",
+      "size": 88656,
+      "hash": "643d06befe92c395ee73d3c9b298129a75845828",
+      "sri": null
+    },
+    {
+      "path": "app/font/SukhumvitSet-Medium.ttf",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/font/SukhumvitSet-Medium.ttf",
+      "size": 84932,
+      "hash": "f15770d856a27af67510018d035d95d936655e20",
+      "sri": null
+    },
+    {
+      "path": "app/font/SukhumvitSet-SemiBold.ttf",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/font/SukhumvitSet-SemiBold.ttf",
+      "size": 84364,
+      "hash": "b14bd75c2d296d3a2b9495cdb33d46c1bafd4722",
+      "sri": null
+    },
+    {
+      "path": "app/font/SukhumvitSet-Text.ttf",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/font/SukhumvitSet-Text.ttf",
+      "size": 85688,
+      "hash": "9200b43b70903bf2d1e6d33330fa61822633c320",
+      "sri": null
+    },
+    {
+      "path": "app/font/SukhumvitSet-Thin.ttf",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/font/SukhumvitSet-Thin.ttf",
+      "size": 86432,
+      "hash": "e28258f7829664d11312fa49922693a76fe96b24",
+      "sri": null
+    },
+    {
+      "path": "app/font/supermarket.woff",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/font/supermarket.woff",
+      "size": 33204,
+      "hash": "77c18e6771cecff20347d334f984d4d0c75ea25a",
+      "sri": null
+    },
+    {
+      "path": "app/font/supermarket.woff2",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/font/supermarket.woff2",
+      "size": 24304,
+      "hash": "e377443199fa36ab93dcf4fcf709581ca22b29d5",
+      "sri": null
+    },
+    {
+      "path": "app/pic/LOGO-Precision.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/pic/LOGO-Precision.png",
+      "size": 1247894,
+      "hash": "2e4bb126699d67cbb603363b078c7f54691b63a0",
+      "sri": null
+    },
+    {
+      "path": "app/pic/bar-chart.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/pic/bar-chart.png",
+      "size": 9665,
+      "hash": "d865a2e2001c974980b382439c58a2883ddf2267",
+      "sri": null
+    },
+    {
+      "path": "app/pic/budget.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/pic/budget.png",
+      "size": 49741,
+      "hash": "25bb562ce4f1e1fc904de0003b3224eae285ab50",
+      "sri": null
+    },
+    {
+      "path": "app/pic/farmer.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/pic/farmer.png",
+      "size": 21477,
+      "hash": "1b6d49ad4d358f1a6f18d4c3fa12deb143ffcd69",
+      "sri": null
+    },
+    {
+      "path": "app/pic/farming (1).png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/pic/farming (1).png",
+      "size": 12093,
+      "hash": "1a61ec7bb334394fc5e9cf981abf106605290b27",
+      "sri": null
+    },
+    {
+      "path": "app/pic/farming (2).png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/pic/farming (2).png",
+      "size": 23043,
+      "hash": "7daae40860af99fb7206a291e1ffd5625c8bcddb",
+      "sri": null
+    },
+    {
+      "path": "app/pic/farming.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/pic/farming.png",
+      "size": 29591,
+      "hash": "9a2cf51d8434ec2a8da4830f707cf67bdce97882",
+      "sri": null
+    },
+    {
+      "path": "app/pic/find.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/pic/find.png",
+      "size": 24621,
+      "hash": "834b8f604f5878d8180748c7612ad905abb5eda0",
+      "sri": null
+    },
+    {
+      "path": "app/pic/icon meajo.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/pic/icon meajo.png",
+      "size": 87643,
+      "hash": "d6b2a3e22771b494fabd90a2c0d24de5daa5a141",
+      "sri": null
+    },
+    {
+      "path": "app/pic/location.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/pic/location.png",
+      "size": 43659,
+      "hash": "bcd0acb5446c9944d4996681cca6533ebed8c75a",
+      "sri": null
+    },
+    {
+      "path": "app/pic/logofrm-removebg-preview.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/pic/logofrm-removebg-preview.png",
+      "size": 356276,
+      "hash": "15454a12f545dc19c45cc81e9f2a2b9780297d77",
+      "sri": null
+    },
+    {
+      "path": "app/pic/settings.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/pic/settings.png",
+      "size": 19077,
+      "hash": "dbac853bccdbe98d69aa02d5333375635a8f7620",
+      "sri": null
+    },
+    {
+      "path": "head.html",
+      "where": "internal",
+      "type": "head",
+      "hash": "e3461dc4b1aeb1f3854a204f4c7f64efb05c39e6"
+    }
+  ]
+}

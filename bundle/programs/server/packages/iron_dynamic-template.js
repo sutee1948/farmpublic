@@ -88,7 +88,7 @@ var typeOf = function (value) {
  *
  */
 DynamicTemplate = function (options) {
-  this._id = Random.id(); 
+  this._id = Random.id();
   this.options = options = options || {};
   this._template = options.template;
   this._defaultTemplate = options.defaultTemplate;
@@ -294,7 +294,7 @@ DynamicTemplate.prototype.renderView = function (template) {
       tmpl = Blaze.With({
         msg: "Couldn't find a template named " + JSON.stringify(template) + " or " + JSON.stringify(camelCase(template))+ ". Are you sure you defined it?"
       }, function () {
-        return Template.__DynamicTemplateError__;
+        return Template.__IronRouterDynamicTemplateError__;
       });
     }
   } else if (typeOf(template) === '[object Object]') {
@@ -627,8 +627,8 @@ DynamicTemplate.findLookupHostWithProperty = function (view, key) {
       if (host && get(host, key)) {
         return host;
       }
-    } 
-    
+    }
+
     view = view.parentView;
   }
 
@@ -652,8 +652,8 @@ DynamicTemplate.findLookupHostWithHelper = function (view, helperKey) {
       if (host && get(host, 'constructor', '_helpers', helperKey)) {
         return host;
       }
-    } 
-    
+    }
+
     view = view.parentView;
   }
 

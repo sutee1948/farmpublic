@@ -229,12 +229,11 @@
       "path": "packages/observe-sequence.js"
     },
     {
-      "path": "packages/deps.js"
-    },
-    {
+      "sourceMap": "packages/htmljs.js.map",
       "path": "packages/htmljs.js"
     },
     {
+      "node_modules": "npm/node_modules/meteor/blaze/node_modules",
       "sourceMap": "packages/blaze.js.map",
       "path": "packages/blaze.js"
     },
@@ -248,6 +247,7 @@
       "path": "packages/templating-compiler.js"
     },
     {
+      "node_modules": "npm/node_modules/meteor/templating-runtime/node_modules",
       "path": "packages/templating-runtime.js"
     },
     {
@@ -293,9 +293,6 @@
     },
     {
       "path": "packages/momentjs_moment.js"
-    },
-    {
-      "path": "packages/livedata.js"
     },
     {
       "path": "packages/hot-code-push.js"

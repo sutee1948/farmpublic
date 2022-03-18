@@ -16,13 +16,13 @@ var ObserveSequence, seqChangedToEmpty, seqChangedToArray, seqChangedToCursor;
 
 (function(){
 
-///////////////////////////////////////////////////////////////////////////////////
-//                                                                               //
-// packages/observe-sequence/observe_sequence.js                                 //
-//                                                                               //
-///////////////////////////////////////////////////////////////////////////////////
-                                                                                 //
-var warn = function () {
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                              //
+// packages/observe-sequence/observe_sequence.js                                                //
+//                                                                                              //
+//////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                //
+const warn = function () {
   if (ObserveSequence._suppressWarnings) {
     ObserveSequence._suppressWarnings--;
   } else {
@@ -42,8 +42,8 @@ function isArray(arr) {
   return arr instanceof Array || _.isArray(arr);
 }
 
-var idStringify = MongoID.idStringify;
-var idParse = MongoID.idParse;
+const idStringify = MongoID.idStringify;
+const idParse = MongoID.idParse;
 
 ObserveSequence = {
   _suppressWarnings: 0,
@@ -135,7 +135,7 @@ ObserveSequence = {
           seqArray = result[0];
           activeObserveHandle = result[1];
         } else {
-          throw badSequenceError();
+          throw badSequenceError(seq);
         }
 
         diffArray(lastSeqArray, seqArray, callbacks);
@@ -164,17 +164,71 @@ ObserveSequence = {
     } else if (isStoreCursor(seq)) {
       return seq.fetch();
     } else {
-      throw badSequenceError();
+      throw badSequenceError(seq);
     }
   }
 };
 
-var badSequenceError = function () {
+function ellipsis(longStr, maxLength) {
+  if(!maxLength) maxLength = 100;
+  if(longStr.length < maxLength) return longStr;
+  return longStr.substr(0, maxLength-1) + '…';
+}
+
+function arrayToDebugStr(value, maxLength) {
+  var out = '', sep = '';
+  for(var i = 0; i < value.length; i++) {
+    var item = value[i];
+    out += sep + toDebugStr(item, maxLength);
+    if(out.length > maxLength) return out;
+    sep = ', ';
+  }
+  return out;
+}
+
+function toDebugStr(value, maxLength) {
+  if(!maxLength) maxLength = 150;
+  const type = typeof value;
+  switch(type) {
+    case 'undefined':
+      return type;
+    case 'number':
+      return value.toString();
+    case 'string':
+      return JSON.stringify(value); // add quotes
+    case 'object':
+      if(value === null) {
+        return 'null';
+      } else if(Array.isArray(value)) {
+        return 'Array [' + arrayToDebugStr(value, maxLength) + ']';
+      } else if(Symbol.iterator in value) { // Map and Set are not handled by JSON.stringify
+        return value.constructor.name
+          + ' [' + arrayToDebugStr(Array.from(value), maxLength)
+          + ']'; // Array.from doesn't work in IE, but neither do iterators so it's unreachable
+      } else { // use JSON.stringify (sometimes toString can be better but we don't know)
+        return value.constructor.name + ' '
+             + ellipsis(JSON.stringify(value), maxLength);
+      }
+    default:
+      return type + ': ' + value.toString();
+  }
+}
+
+function sequenceGotValue(sequence) {
+  try {
+    return ' Got ' + toDebugStr(sequence);
+  } catch(e) {
+    return ''
+  }
+}
+
+const badSequenceError = function (sequence) {
   return new Error("{{#each}} currently only accepts " +
-                   "arrays, cursors or falsey values.");
+                   "arrays, cursors or falsey values." +
+                   sequenceGotValue(sequence));
 };
 
-var isStoreCursor = function (cursor) {
+const isStoreCursor = function (cursor) {
   return cursor && _.isObject(cursor) &&
     _.isFunction(cursor.observe) && _.isFunction(cursor.fetch);
 };
@@ -182,7 +236,7 @@ var isStoreCursor = function (cursor) {
 // Calculates the differences between `lastSeqArray` and
 // `seqArray` and calls appropriate functions from `callbacks`.
 // Reuses Minimongo's diff algorithm implementation.
-var diffArray = function (lastSeqArray, seqArray, callbacks) {
+const diffArray = function (lastSeqArray, seqArray, callbacks) {
   var diffFn = Package['diff-sequence'].DiffSequence.diffQueryOrderedChanges;
   var oldIdObjects = [];
   var newIdObjects = [];
@@ -380,7 +434,7 @@ seqChangedToCursor = function (lastSeqArray, cursor, callbacks) {
   return [seqArray, observeHandle];
 };
 
-///////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
 

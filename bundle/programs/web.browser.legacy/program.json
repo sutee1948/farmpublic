@@ -2,25 +2,25 @@
   "format": "web-program-pre1",
   "manifest": [
     {
-      "path": "9a698203ee4c05b88b900fc0140632cf94899a07.js",
+      "path": "ab1d325f537373fdc4ff383de1f3a758bd219254.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/9a698203ee4c05b88b900fc0140632cf94899a07.js?meteor_js_resource=true",
+      "url": "/ab1d325f537373fdc4ff383de1f3a758bd219254.js?meteor_js_resource=true",
       "replaceable": false,
-      "size": 2826437,
-      "hash": "9a698203ee4c05b88b900fc0140632cf94899a07",
-      "sri": "CB2NTIAgRsoybboj+LpbGfcoJcMSfnLbANaGcyh1sJtVmIlddApCQh+bfKfRe5FU6EzCPKyc7tNf+RTBF94IMQ=="
+      "size": 2970864,
+      "hash": "ab1d325f537373fdc4ff383de1f3a758bd219254",
+      "sri": "c9WxQ7ZdjJyLquwK94sO7yjrGDbgv4hhyhT7GPvYSN9vmjqxTvwuKAc93GG5b97YVPVvdNahoqlWD9Wn6RoVGA=="
     },
     {
-      "path": "9a698203ee4c05b88b900fc0140632cf94899a07.stats.json",
+      "path": "ab1d325f537373fdc4ff383de1f3a758bd219254.stats.json",
       "where": "client",
       "type": "json",
       "cacheable": true,
-      "url": "/9a698203ee4c05b88b900fc0140632cf94899a07.stats.json?meteor_js_resource=true",
-      "size": 33120,
-      "hash": "d07e106ea090163097dcf4c4dfa25223693d7fd0",
-      "sri": "ifxkwhtwythshu7HCbMyt6MrM2xC+d6ovJ/J0Dll68wu1YxgKxwf6oB+3g17i3e61QVuviQOUKmEWW+DJVLt9Q=="
+      "url": "/ab1d325f537373fdc4ff383de1f3a758bd219254.stats.json?meteor_js_resource=true",
+      "size": 36134,
+      "hash": "95798108b96c818f8549f9d72b8a4773ef192e67",
+      "sri": "4rDiCXk31h3AKYOXiu95sQ0QAqGDp1V4pknK9pWAL0mW64i70jgXkOfeK5+W0QXGf03uqFLD1tnnc3oLf5mdlg=="
     },
     {
       "path": "151908865ea0ebbc5fc1cd8d2e0682375fc8cce8.css",
@@ -50,6 +50,16 @@
       "url": "/location.png",
       "size": 43659,
       "hash": "bcd0acb5446c9944d4996681cca6533ebed8c75a",
+      "sri": null
+    },
+    {
+      "path": "app/log.txt",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/log.txt",
+      "size": 709421,
+      "hash": "2b42f0c65e2b287dfbce3004500fa07f028831c4",
       "sri": null
     },
     {

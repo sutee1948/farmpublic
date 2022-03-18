@@ -10,12 +10,12 @@ var fetch = Package.fetch.fetch;
 
 var require = meteorInstall({"node_modules":{"meteor":{"dynamic-import":{"server.js":function module(require,exports,module){
 
-/////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                     //
-// packages/dynamic-import/server.js                                                   //
-//                                                                                     //
-/////////////////////////////////////////////////////////////////////////////////////////
-                                                                                       //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                       //
+// packages/dynamic-import/server.js                                                                     //
+//                                                                                                       //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                         //
 "use strict";
 
 const assert = require("assert");
@@ -85,6 +85,8 @@ function middleware(request, response) {
 
   if (request.method === "OPTIONS") {
     const acrh = request.headers["access-control-request-headers"];
+    response.setHeader('Allow', 'OPTIONS, POST');
+    response.setHeader('Content-Length', '0');
     response.setHeader(
       "Access-Control-Allow-Headers",
       typeof acrh === "string" ? acrh : "*"
@@ -120,11 +122,13 @@ function middleware(request, response) {
     });
 
   } else {
+    const body = `method ${request.method} not allowed`;
     response.writeHead(405, {
+      Allow: "OPTIONS, POST",
+      'Content-Length': Buffer.byteLength(body),
       "Cache-Control": "no-cache"
     });
-
-    response.end(`method ${request.method} not allowed`);
+    response.end(body);
   }
 }
 
@@ -229,16 +233,16 @@ onMessage("client-refresh", () => {
   });
 });
 
-/////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 },"cache.js":function module(require,exports,module){
 
-/////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                     //
-// packages/dynamic-import/cache.js                                                    //
-//                                                                                     //
-/////////////////////////////////////////////////////////////////////////////////////////
-                                                                                       //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                       //
+// packages/dynamic-import/cache.js                                                                      //
+//                                                                                                       //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                         //
 var dbPromise;
 
 var canUseCache =
@@ -428,20 +432,23 @@ function flushSetMany() {
   });
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 },"client.js":function module(require,exports,module){
 
-/////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                     //
-// packages/dynamic-import/client.js                                                   //
-//                                                                                     //
-/////////////////////////////////////////////////////////////////////////////////////////
-                                                                                       //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                       //
+// packages/dynamic-import/client.js                                                                     //
+//                                                                                                       //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                         //
 var Module = module.constructor;
 var cache = require("./cache.js");
 var meteorInstall = require("meteor/modules").meteorInstall;
 var dynamicVersions = require("./dynamic-versions.js");
+
+// Fix for Safari 14 bug (https://bugs.webkit.org/show_bug.cgi?id=226547), do not delete this unused var
+var idb = global.indexedDB;
 
 var dynamicImportSettings = Meteor.settings
     && Meteor.settings.public
@@ -588,7 +595,7 @@ function fetchMissing(missingTree) {
   var disableLocationOriginIframe = dynamicImportSettings.disableLocationOriginIframe;
 
   if (useLocationOrigin && location && !(disableLocationOriginIframe && inIframe())) {
-    url = location.origin.concat(url);
+    url = location.origin.concat(__meteor_runtime_config__.ROOT_URL_PATH_PREFIX || '', url);
   } else {
     url = Meteor.absoluteUrl(url);
   }
@@ -636,28 +643,28 @@ function getNamespace(module, id) {
   return namespace;
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 },"common.js":function module(require,exports){
 
-/////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                     //
-// packages/dynamic-import/common.js                                                   //
-//                                                                                     //
-/////////////////////////////////////////////////////////////////////////////////////////
-                                                                                       //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                       //
+// packages/dynamic-import/common.js                                                                     //
+//                                                                                                       //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                         //
 exports.fetchURL = "/__meteor__/dynamic-import/fetch";
 
-/////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 },"dynamic-versions.js":function module(require,exports,module){
 
-/////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                     //
-// packages/dynamic-import/dynamic-versions.js                                         //
-//                                                                                     //
-/////////////////////////////////////////////////////////////////////////////////////////
-                                                                                       //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                       //
+// packages/dynamic-import/dynamic-versions.js                                                           //
+//                                                                                                       //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                         //
 // This magic double-underscored identifier gets replaced in
 // tools/isobuild/bundler.js with a tree of hashes of all dynamic
 // modules, for use in client.js and cache.js.
@@ -766,16 +773,16 @@ if (global.addEventListener) {
   global.attachEvent('onload', precacheOnLoad);
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 },"security.js":function module(require,exports,module){
 
-/////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                     //
-// packages/dynamic-import/security.js                                                 //
-//                                                                                     //
-/////////////////////////////////////////////////////////////////////////////////////////
-                                                                                       //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                       //
+// packages/dynamic-import/security.js                                                                   //
+//                                                                                                       //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                         //
 Meteor.startup(function () {
   const bpc = Package["browser-policy-content"];
   const BP = bpc && bpc.BrowserPolicy;
@@ -799,7 +806,7 @@ Meteor.startup(function () {
   }
 });
 
-/////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }}}}},{
   "extensions": [
